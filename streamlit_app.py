@@ -1,24 +1,34 @@
 import streamlit as st
 import pandas as pd
+
 st.title('My first app')
 df_reg = pd.read_csv("mumbai_houses_task.csv")
 
-def main():
 
-    # option to choose between 
-    select_page = st.sidebar.selectbox("Prediction or About", ("Predict", "About"), key = "Select")
-    
-    # if user selects Predict page
-    if (select_page == "Predict"):
+def main():
+    # option to choose between
+    select_page = st.sidebar.selectbox("Prediction or About", ("Predict", "About"), key="Select")
+
+    if (select_page == "title page"):
         prediction_page()
-    
-    # if user selects About page
-    elif (select_page == "About"):
+
+    elif (select_page == "dataset description"):
         about()
+
+    elif (select_page == "visualizations"):
+        about()
+
+    elif (select_page == "models predictions"):
+        about()
+
+    elif (select_page == "dimension reduction"):
+        about()
+
 
 # First page - prediction page
 def prediction_page():
-    st.header("Interactive Diabetes Web Application")
+    st.header("РГР по машинному обучению студента группы ФИТ-222 Маркиной Екатерины Константиновны")
+
 
 Prise = st.slider('Choose prise', min_value=0,
                   max_value=1000000000000000, value=(20, 50))
@@ -40,6 +50,7 @@ Furnished_status = st.multiselect(
 Lift = st.multiselect('Choose lift', df_reg['lift'].unique())
 Type_of_building = st.multiselect(
     'Choose type_of_building', df_reg['type_of_building'].unique())
+
 
 # Second page - about page
 def about():
