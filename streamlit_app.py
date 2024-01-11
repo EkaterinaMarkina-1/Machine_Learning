@@ -44,10 +44,7 @@ def prediction_page():
       
     st.write(f"You {value}")
     
-    
-# Second page - about page
-def about():
-    st.header("About this model")
+
 
 
 main()
