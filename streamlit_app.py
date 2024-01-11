@@ -1,27 +1,25 @@
 import streamlit as st
 import pandas as pd
 st.title('My first app')
-df_class = pd.read_csv("mumbai_houses_task.csv")
+df_reg = pd.read_csv("mumbai_houses_task.csv")
 
-Region = st.multiselect('Choose regions', df['region'].unique())
-Smoker = st.multiselect('Choose smoker', df['smoker'].unique())
-Sex = st.radio('Choose a gender', df['sex'].unique())
-Age = st.slider('Choose age', min_value=17, max_value=66, value=(20, 50))
-Children = st.number_input('Choose the number of children', min_value= 0,
- max_value=5, value =1, step=1)
-new_df = df[(df['region'].isin(Region)) & (df['smoker'].isin(Smoker)) & (df['sex'] =
-= Sex)
- & (df['age']> Age[0]) & (df['age']< Age[1])
- & (df['children'] == Children)]
-st.write(new_df)
+Prise = st.slider('Choose prise', min_value=0,
+                  max_value=1000000000000000, value=(20, 50))
+Area = st.slider('Choose area', min_value=0,
+                 max_value=10000000, value=(20, 50))
+Latitude = st.slider('Choose latitude', min_value=0,
+                     max_value=1000000000000000, value=(20, 50))
+Longitude = st.slider('Choose longitude', min_value=0,
+                      max_value=1000000000000000, value=(20, 50))
 
-
-
-
-
-new_df = df_class[(df_class['region'].isin(Region)) & (df_class['smoker'].isin(Smoker)) & (df_class['sex'] =
-= Sex)
- & (df_class['age']> Age[0]) & (df_class['age']< Age[1])
- & (df_class['children'] == Children)]
-st.write(new_df)
-
+Bedrooms = st.multiselect('Choose bedrooms', df_reg['bedrooms'].unique())
+Bathrooms = st.multiselect('Choose bathrooms', df_reg['bathrooms'].unique())
+Balconyv = st.multiselect('Choose balconyv', df_reg['balconyv'].unique())
+Status = st.multiselect('Choose status', df_reg['status'].unique())
+Neworold = st.multiselect('Choose neworold', df_reg['neworold'].unique())
+Parking = st.multiselect('Choose parking', df_reg['parking'].unique())
+Furnished_status = st.multiselect(
+    'Choose furnished_status', df_reg['furnished_status'].unique())
+Lift = st.multiselect('Choose lift', df_reg['lift'].unique())
+Type_of_building = st.multiselect(
+    'Choose type_of_building', df_reg['type_of_building'].unique())
